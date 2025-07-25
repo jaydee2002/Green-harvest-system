@@ -605,7 +605,7 @@ const OrderAdmin = () => {
                   <div className="rounded-lg border overflow-hidden shadow-sm">
                     <table className="min-w-full bg-white">
                       <thead>
-                        <tr className="bg-gray-200 text-left text-gray-500">
+                        <tr className="bg-gray-100 text-left text-gray-500">
                           <th scope="col" className="py-3 px-6 font-semibold">
                             Order No
                           </th>

@@ -231,6 +231,9 @@ const Cart = () => {
                           {discountPercentage}%
                         </td>
                         <td className="py-4 text-right text-sm font-medium">
+                          <p className="line-through text-gray-400">
+                            Rs {product.price.toFixed(2)}
+                          </p>
                           Rs {discountedPrice.toFixed(2)}
                         </td>
                       </tr>

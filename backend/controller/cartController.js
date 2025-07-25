@@ -2,7 +2,9 @@
 const User = require("../models/Usermodel.js");
 
 const addToCart = async (req, res) => {
+  console.log("Received request to add item to cart:");
   try {
+    console.log("Received request to add item to cart:");
     const userId = req.body.userId;
     const quantity = req.body.quantity;
 
@@ -10,10 +12,21 @@ const addToCart = async (req, res) => {
 
     let userData = await User.findById(userId);
 
+    // if (!userData) {
+    //   return res
+    //     .status(404)
+    //     .json({ success: false, message: "User not found" });
+    // }
+
     if (!userData) {
-      return res
-        .status(404)
-        .json({ success: false, message: "User not found" });
+      userData = await User.create({
+        _id: userId,
+        first_name: "default",
+        last_name: "user",
+        email: "user123@gmail.com",
+        password: "1234",
+        cartData: {},
+      });
     }
 
     // Retrieve the cartData or initialize it as an empty object
